@@ -1,0 +1,1140 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><META content="IE=7.0000" http-equiv="X-UA-Compatible">
+<TITLE>LDRA Testbed Code Review Report</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<STYLE type=text/css>.orag-line {
+	BACKGROUND-COLOR: #ff7b42
+}
+.break {
+	BACKGROUND-COLOR: #ff7b42
+}
+.blue-line {
+	BACKGROUND-COLOR: #000080
+}
+.break-p {
+	BACKGROUND-COLOR: #000084
+}
+.break-p {
+	border-radius: 10px
+}
+.break {
+	border-radius: 10px
+}
+DIV {
+	PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px
+}
+H2 {
+	TEXT-ALIGN: center
+}
+H3 {
+	TEXT-ALIGN: center
+}
+.header {
+	TEXT-ALIGN: center
+}
+TABLE TD {
+	TEXT-ALIGN: left
+}
+TABLE {
+	MARGIN: auto
+}
+P.pagebreak {
+	PAGE-BREAK-BEFORE: always
+}
+P.nopagebreak {
+	
+}
+P.shiftleft {
+	MARGIN-LEFT: -54pt
+}
+BR.pagebreak {
+	PAGE-BREAK-BEFORE: always
+}
+</STYLE>
+
+<SCRIPT language=Javascript>
+
+function popup(mylink, windowname)
+{
+if (! window.focus && window.opener)
+{
+return true;
+}
+var href;
+var temp;
+if (typeof(mylink)=='string')
+{
+href=mylink;
+}
+else
+{
+href=mylink.href;
+temp = window.open(href, windowname, 'width=600,        height=300,scrollbars=yes');
+temp.focus();
+return false;
+}
+}
+function targetopener(mylink, closeme, closeonly)
+{
+if (! (window.focus && window.opener))     return true;
+if (! closeonly)                                 window.opener.location.href=mylink.href;
+window.blur();
+window.opener.focus();
+if (closeme)                                    window.close();
+return false;
+return false;
+}
+
+</SCRIPT>
+
+<SCRIPT language=Javascript 
+src="LDRA%20Testbed%20Code%20Review%20Report_files/imagejs.js"> 
+// -->
+</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 11.00.9600.19597"></HEAD>
+<BODY bgColor=#fffff2>
+<DIV class=break 
+style="HEIGHT: 10px; WIDTH: 80%; MARGIN: 0px auto; DISPLAY: block"></DIV><BR><A 
+name=top_of_rep></A><BR>
+<STYLE type=text/css>A.set1:link {
+	TEXT-DECORATION: none; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #fbfcc8
+}
+A.set1:visited {
+	TEXT-DECORATION: none; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #fbfcc8
+}
+A.set1:active {
+	TEXT-DECORATION: none; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #fbfcc8
+}
+A:link {
+	TEXT-DECORATION: none; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: blue
+}
+A:visited {
+	TEXT-DECORATION: none; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: blue
+}
+A:active {
+	TEXT-DECORATION: none; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: blue
+}
+</STYLE>
+
+<CENTER><FONT size=9><B>LDRA Testbed ® Code Review Report </FONT></B></CENTER>
+<CENTER><FONT size=9><B></FONT></B></CENTER>
+<CENTER>
+<H1>Group : ll </H1></CENTER><BR><BR><BR><BR>
+<HR width="100%">
+
+<CENTER>
+<TABLE width="50%" border=1>
+  <TBODY>
+  <TR>
+    <TH bgColor=#ff0000><FONT color=#fbfcc8 size=5>Overall Result: FAIL 
+    </FONT></TH></TR></TBODY></TABLE></CENTER>
+<HR width="100%">
+<BR><BR><BR>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 425px; MARGIN: 0px auto; DISPLAY: block"></DIV><BR><BR>
+<CENTER>
+<TABLE width="80%" bgColor=#d7eded border=1>
+  <TBODY>
+  <TR>
+    <TH>Report Production </TH>
+    <TH>Report Configuration </TH>
+    <TH>Analysis phases </TH></TR>
+  <TR>
+    <TD>
+      <UL>
+        <LI>C/C++ LDRA Testbed Version: 9.4.1
+        <LI>Config. File: C:\LDRA_Toolsuite\c\creport.dat
+        <LI>Produced On: Wed Aug 24 2022 at 20:11:51
+        <LI>Penalty File: C:\LDRA_Toolsuite\c\cpen.dat</LI></UL></TD>
+    <TD>
+      <UL>
+        <LI>Report Level: Summary Report
+        <LI>Procedures Reported: Fails Only
+        <LI>Programming Standards Model: MISRA-C:2012
+        <LI>Line Numbers refer to: Original Source File
+        <LI>Violation Details: Violations and Associated Source &amp; 
+        Reformatted Code
+        <LI>Reporting Scope: Source file and associated header</LI></UL></TD>
+    <TD>
+      <UL>
+        <LI>Static: Yes
+        <LI>Complexity: Yes
+        <LI>Static Data Flow: Yes
+        <LI>Information Flow: Yes
+        <LI>Cross Reference: Yes</LI></UL></TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 425px; MARGIN: 0px auto; DISPLAY: block"></DIV>
+<H4><A name=contents>Contents </A></H4>Overall Code Review Summary <BR>
+<UL>
+  <LI>Totals of Violations for each Standard <BR>
+  <LI><A 
+  href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#procedure_table">Table 
+  of Procedure Results </A><BR>
+  <LI><A 
+  href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#source_file_table">Table 
+  of Source Files in Group </A><BR>
+  <LI>Table of Global Basic Information <BR><BR></LI></UL><A 
+href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#procedure_reports">Report 
+on Program Components </A><BR>
+<UL>
+  <LI>Code Review Results Global Program and Selected Procedures 
+<BR><BR></LI></UL><A 
+href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#key_to_terms">Key to Terms 
+</A><BR>
+<HR>
+<BR><BR><BR><BR>
+<CENTER>
+<H2>Overall Code Review Summary</H2></CENTER><BR><BR>
+<H4>Totals for Violated Code Review Standards </H4><BR>
+<CENTER>
+<TABLE width="80%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>(M) Mandatory Standards </TH>
+    <TH>MISRA-C:2012 Code </TH></TR></TBODY></TABLE></CENTER><BR>No Mandatory 
+Standards Violated <BR><BR>
+<CENTER>
+<TABLE width="80%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>Required Standards </TH>
+    <TH>MISRA-C:2012 Code </TH></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup63S.htm">1</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>63 S </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_s63">') + document.write('Empty parameter list to procedure/function.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_r.8.2">') + document.write('MISRA-C:2012 R.8.2') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup101S.htm">1</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>101 S </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_s101">') + document.write('Function return type inconsistent.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_r.10.3">') + document.write('MISRA-C:2012 R.10.3') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup118S.htm">1</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>118 S </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_s118">') + document.write('main must be int (void) or int (int,char*[]).') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_r.1.3">') + document.write('MISRA-C:2012 R.1.3') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup8D.htm">2</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>8 D </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_d8">') + document.write('DD  data flow anomalies found.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_r.2.2">') + document.write('MISRA-C:2012 R.2.2') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup63D.htm">1</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>63 D </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_d63">') + document.write('No definition in system for prototyped procedure.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_r.8.6">') + document.write('MISRA-C:2012 R.8.6') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup76D.htm">1</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>76 D </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_d76">') + document.write('Procedure is not called or referenced in code analysed.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_r.2.1">') + document.write('MISRA-C:2012 R.2.1') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup91D.htm">1</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>91 D </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_d91">') + document.write('Function return value potentially unused.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_d.4.7,r.17.7">') + document.write('MISRA-C:2012 D.4.7,R.17.7') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup105D.htm">1</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>105 D </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_d105">') + document.write('DU anomaly dead code, variable value is unused on all paths.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_r.2.2">') + document.write('MISRA-C:2012 R.2.2') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR>
+  <TR>
+    <TD bgColor=#ff8181 align=center ,><FONT color=blue>
+      <CENTER><A onclick='return popup(this, "knotes")' 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll_link_popup106D.htm">3</A> 
+      </CENTER></FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>106 D </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_d106">') + document.write('No prototype for non-static function.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_r.8.4">') + document.write('MISRA-C:2012 R.8.4') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE width="80%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Number of Violations </TH>
+    <TH>LDRA Code </TH>
+    <TH>Advisory Standards </TH>
+    <TH>MISRA-C:2012 Code </TH></TR>
+  <TR>
+    <TD bgColor=yellow align=center ,><FONT color=blue>
+      <CENTER>12 </CENTER></FONT></TD>
+    <TD bgColor=yellow ,><FONT color=blue>90 S </FONT></TD>
+    <TD bgColor=yellow ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/standards.htm#standard_s90">') + document.write('Basic type declaration used.') + document.write('</a>') </SCRIPT>
+      </FONT></TD>
+    <TD bgColor=yellow ,><FONT color=blue>
+      <SCRIPT language=javascript> document.write(base_str + 'standards_info/html/misra-c_2012_model.htm#rule_misra-c%3A2012_d.4.6">') + document.write('MISRA-C:2012 D.4.6') + document.write('</a>') </SCRIPT>
+      </FONT></TD></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE width="80%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TD>Number of Mandatory Standards checked </TD>
+    <TD align=center>18 </TD></TR>
+  <TR>
+    <TD>Number of Required Standards checked </TD>
+    <TD align=center>280 </TD></TR>
+  <TR>
+    <TD>Number of Advisory Standards checked </TD>
+    <TD align=center>35 </TD></TR>
+  <TR>
+    <TD>Number of Document Standards checked </TD>
+    <TD align=center>3 </TD></TR>
+  <TR>
+    <TD>Total Standards checked </TD>
+    <TD align=center>333 </TD></TR>
+  <TR>
+    <TD>Total Standards checked including Document </TD>
+    <TD align=center>336 </TD></TR></TBODY></TABLE></CENTER><BR><BR><BR>
+<P class=pagebreak><BR>
+<P><BR>
+<HR width="100%">
+<FONT color=#ff0000>
+<CENTER>
+<H3>OVERALL RESULT: FAIL</H3></CENTER></FONT>
+<HR width="100%">
+<BR><A name=procedure_table></A><BR>Out of 5 program components, 0 (0.00 %) pass 
+( of which 0 conditionally pass ) and 5 fail ( of which 0 fail only because of 
+insufficient comments ) <BR><BR>
+<H4>Procedure Results </H4>
+<CENTER>
+<TABLE width="80%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE width="100%" bgColor=#ece2e2>
+        <TBODY>
+        <TR>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH></TR>
+        <TR align=left>
+          <TH colSpan=11><TT>Code Review Result </TT></TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH width="19%" colSpan=11><TT>Procedure </TT></TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH width="19%" colSpan=11><TT>Source File </TT></TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH width="19%" colSpan=11><TT><A 
+            href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#unq_key">Unique 
+            Violations</A> </TT></TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH width="19%" colSpan=11><TT><A 
+            href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#unq_key">Failure 
+            Density</A> </TT></TH>
+          <TH width="1%">&nbsp;</TH></TR>
+        <TR align=left>
+          <TH width="79%" colSpan=44><TT>&nbsp; </TT></TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH colSpan=11><TT>(Viols/R.Line %) </TT></TH>
+          <TH width="1%">&nbsp;</TH></TR>
+        <TR align=left>
+          <TD colSpan=11><FONT color=#ff0000>FAIL </FONT></TD>
+          <TD></TD>
+          <TD colSpan=11><A 
+            href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#global_prog">Global 
+            Program</A> </TD>
+          <TD></TD></TR>
+        <TR align=left>
+          <TD colSpan=11><FONT color=#ff0000>FAIL </FONT></TD>
+          <TD></TD>
+          <TD colSpan=11><A 
+            href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#floor_mathematics.c_mathematics.c_1">FLOOR</A> 
+          </TD>
+          <TD></TD>
+          <TD colSpan=11>Mathematics.c </TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=3>20 </TD>
+          <TD bgColor=#afe1ab colSpan=8><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=11><FONT color=white>133 </FONT></TD>
+          <TD></TD></TR>
+        <TR align=left>
+          <TD colSpan=11><FONT color=#ff0000>FAIL </FONT></TD>
+          <TD></TD>
+          <TD colSpan=11><A 
+            href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#power_mathematics.c_mathematics.c_2">POWER</A> 
+          </TD>
+          <TD></TD>
+          <TD colSpan=11>Mathematics.c </TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=3>20 </TD>
+          <TD bgColor=#afe1ab colSpan=8><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=11><FONT color=white>200 </FONT></TD>
+          <TD></TD></TR>
+        <TR align=left>
+          <TD colSpan=11><FONT color=#ff0000>FAIL </FONT></TD>
+          <TD></TD>
+          <TD colSpan=11><A 
+            href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#main_mathematics.c_mathematics.c_3">main</A> 
+          </TD>
+          <TD></TD>
+          <TD colSpan=11>Mathematics.c </TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=4>33 </TD>
+          <TD bgColor=#afe1ab colSpan=7><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=9>83 </TD>
+          <TD bgColor=#afe1ab colSpan=2><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD></TR>
+        <TR align=left>
+          <TD colSpan=11><FONT color=#ff0000>FAIL </FONT></TD>
+          <TD></TD>
+          <TD colSpan=11><A 
+            href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#static_test_reps.c_reps.c_1">static_test</A> 
+          </TD>
+          <TD></TD>
+          <TD colSpan=11>Reps.c </TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=3>27 </TD>
+          <TD bgColor=#afe1ab colSpan=8><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=6>55 </TD>
+          <TD bgColor=#afe1ab colSpan=5><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD></TR></TD></TR></TBODY></TABLE></TR></TBODY></TABLE></CENTER><BR><BR>
+<H4><A name=global_prog>Global Information </A></H4>
+<H4><A name=source_file_table>Source Files in Group </A></H4>
+<CENTER>
+<TABLE width="80%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Name </TH>
+    <TH>Last Modification Date </TH></TR>
+  <TR>
+    <TD><FONT>C:\LDRA_Workarea\Examples\C_tbrun_examples\Examples\Reps.c 
+      </FONT></TD>
+    <TD>Fri Oct 18 13:45:20 2013 </TD></TR>
+  <TR>
+    <TD><FONT>C:\LDRA_Workarea\Examples\C_tbrun_examples\Math\Mathematics.c 
+      </FONT></TD>
+    <TD>Fri Oct 18 13:45:20 2013 </TD></TR></TBODY></TABLE></CENTER><BR>
+<HR>
+<BR><BR>
+<H4><SPAN style="WIDTH: 5%; FLOAT: left; DISPLAY: block">&nbsp;</SPAN> Global 
+Basic Information </H4>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TD>Number of procedures: </TD>
+    <TD align=center>4 </TD></TR>
+  <TR>
+    <TD>Number of locally uncalled procedures: </TD>
+    <TD align=center>1 </TD></TR>
+  <TR>
+    <TD>Maximum loop depth: </TD>
+    <TD align=center>0 </TD></TR>
+  <TR>
+    <TD>Total Cyclomatic Complexity: </TD>
+    <TD align=center>3 </TD></TR>
+  <TR>
+    <TD>Number of reformatted executable lines: </TD>
+    <TD align=center>23 </TD></TR>
+  <TR>
+    <TD>Number of lines of comments: </TD>
+    <TD align=center>0 </TD></TR></TBODY></TABLE></CENTER><BR>
+<HR>
+<A name=procedure_reports></A><BR>
+<CENTER>
+<H2>Summary Report on all Program Components which FAIL </H2></CENTER><BR><BR>
+<CENTER>
+<TABLE width="50%" border=1>
+  <TBODY>
+  <TR>
+    <TH bgColor=#ff0000><FONT color=#fbfcc8 size=5>Globals / code outside 
+      procedures - FAIL </FONT></TH></TR></TBODY></TABLE></CENTER><BR>
+<H4><SPAN style="WIDTH: 5%; FLOAT: left; DISPLAY: block">&nbsp;</SPAN> Standards 
+Violation Summary - All files </H4>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>File: Src Line </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center>O </TD>
+    <TD>Mathematics.c: 3 </TD>
+    <TD>Basic type declaration used. </TD>
+    <TD>MISRA-C:2012 D.4.6 </TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '3');">Source</A>: int CEIL (double fvalue);  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '10');">Ref(10)</A>: CEIL (    </PRE></TD></TR></TBODY></TABLE></TH></TR>
+  <TR>
+    <TD align=center>O </TD>
+    <TD>Mathematics.c: 3 </TD>
+    <TD>Basic type declaration used. </TD>
+    <TD>MISRA-C:2012 D.4.6 </TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '3');">Source</A>: int CEIL (double fvalue);  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '11');">Ref(11)</A>: double fvalue ) ;    </PRE></TD></TR></TBODY></TABLE></TH></TR>
+  <TR>
+    <TD align=center><A name=first_63_d>C</A> </TD>
+    <TD>Mathematics.c: 3 </TD>
+    <TD>No definition in system for prototyped procedure. : CEIL </TD>
+    <TD>MISRA-C:2012 R.8.6 </TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '3');">Source</A>: int CEIL (double fvalue);  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '9');">Ref(9)</A>: int    </PRE></TD></TR></TBODY></TABLE></TH></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE bgColor=#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#top_of_rep">Top of 
+      Report</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#key_to_terms">Key to 
+      Terms</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#procedure_table">Procedure 
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#contents">Contents</A> 
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 425px; MARGIN: 0px auto; DISPLAY: block"></DIV><BR><BR><A 
+name=floor_mathematics.c_mathematics.c_1></A><BR>
+<HR width="60%">
+<BR>
+<CENTER>
+<TABLE width="50%" border=1>
+  <TBODY>
+  <TR>
+    <TH bgColor=#ff0000><FONT size=5><A class=set1 
+      href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '5');">FLOOR<BR>(5 
+      to 8 Mathematics.c) - FAIL </FONT></A></TH></TR></TBODY></TABLE></CENTER><BR>
+<H4><SPAN style="WIDTH: 5%; FLOAT: left; DISPLAY: block">&nbsp;</SPAN> Standards 
+Violation Summary </H4>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center>C </TD>
+    <TD>No prototype for non-static function. : FLOOR </TD>
+    <TD>MISRA-C:2012 R.8.4 </TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Line </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center><A name=first_101_s>C</A> </TD>
+    <TD align=center>7 </TD>
+    <TD>Function return type inconsistent. : (int and double) </TD>
+    <TD>MISRA-C:2012 R.10.3 </TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD align=center>5 </TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '5');">Source</A>: int FLOOR (double fvalue)  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '13');">Ref(13)</A>: int    </PRE></TD></TR></TBODY></TABLE></TH></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '7');">Source</A>: return floor (fvalue);  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '18');">Ref(18)</A>: floor ( fvalue ) ;    </PRE></TD></TR></TBODY></TABLE></TH></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE bgColor=#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#top_of_rep">Top of 
+      Report</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#key_to_terms">Key to 
+      Terms</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#procedure_table">Procedure 
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#contents">Contents</A> 
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 425px; MARGIN: 0px auto; DISPLAY: block"></DIV><BR><BR><A 
+name=power_mathematics.c_mathematics.c_2></A><BR>
+<HR width="60%">
+<BR>
+<CENTER>
+<TABLE width="50%" border=1>
+  <TBODY>
+  <TR>
+    <TH bgColor=#ff0000><FONT size=5><A class=set1 
+      href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '10');">POWER<BR>(10 
+      to 13 Mathematics.c) - FAIL </FONT></A></TH></TR></TBODY></TABLE></CENTER><BR>
+<H4><SPAN style="WIDTH: 5%; FLOAT: left; DISPLAY: block">&nbsp;</SPAN> Standards 
+Violation Summary </H4>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center>C </TD>
+    <TD>No prototype for non-static function. : POWER </TD>
+    <TD>MISRA-C:2012 R.8.4 </TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Line </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center><A name=first_76_d>C</A> </TD>
+    <TD align=center>10 </TD>
+    <TD>Procedure is not called or referenced in code analysed. : POWER </TD>
+    <TD>MISRA-C:2012 R.2.1 </TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '10');">Source</A>: double POWER (double fvalue,int pval)  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '21');">Ref(21)</A>: double    </PRE></TD></TR></TBODY></TABLE></TH></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE bgColor=#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#top_of_rep">Top of 
+      Report</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#key_to_terms">Key to 
+      Terms</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#procedure_table">Procedure 
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#contents">Contents</A> 
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 425px; MARGIN: 0px auto; DISPLAY: block"></DIV><BR><BR><A 
+name=main_mathematics.c_mathematics.c_3></A><BR>
+<HR width="60%">
+<BR>
+<CENTER>
+<TABLE width="50%" border=1>
+  <TBODY>
+  <TR>
+    <TH bgColor=#ff0000><FONT size=5><A class=set1 
+      href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '15');">main<BR>(15 
+      to 21 Mathematics.c) - FAIL </FONT></A></TH></TR></TBODY></TABLE></CENTER><BR>
+<H4><SPAN style="WIDTH: 5%; FLOAT: left; DISPLAY: block">&nbsp;</SPAN> Standards 
+Violation Summary </H4>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center>C </TD>
+    <TD>DD data flow anomalies found. </TD>
+    <TD>MISRA-C:2012 R.2.2 </TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Line </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center><A name=first_118_s>C</A> </TD>
+    <TD align=center>15 </TD>
+    <TD>main must be int (void) or int (int,char*[]). </TD>
+    <TD>MISRA-C:2012 R.1.3 </TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '15');">Source</A>: void main ()  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '31');">Ref(31)</A>: main()    </PRE></TD></TR></TBODY></TABLE></TH></TR>
+  <TR>
+    <TD align=center><A name=first_105_d>C</A> </TD>
+    <TD align=center>20 </TD>
+    <TD>DU anomaly dead code, variable value is unused on all paths. : v </TD>
+    <TD>MISRA-C:2012 R.2.2 </TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '20');">Source</A>: v = FLOOR (5.6);  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '36');">Ref(36)</A>: v =    </PRE></TD></TR></TBODY></TABLE></TH></TR>
+  <TR>
+    <TD align=center><A name=first_91_d>C</A> </TD>
+    <TD align=center>20 </TD>
+    <TD>Function return value potentially unused. : v </TD>
+    <TD>MISRA-C:2012 D.4.7,R.17.7 </TD></TR>
+  <TR>
+    <TD>&nbsp; </TD>
+    <TD align=center>21 </TD>
+    <TD>&nbsp;</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '21');">Source</A>: }  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '39');">Ref(39)</A>: }    </PRE></TD></TR></TBODY></TABLE></TH></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Math\\Mathematics.c' , '20');">Source</A>: v = FLOOR (5.6);  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\MATHEMATICS_2.ref' , '36');">Ref(36)</A>: v =    </PRE></TD></TR></TBODY></TABLE></TH></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE bgColor=#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#top_of_rep">Top of 
+      Report</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#key_to_terms">Key to 
+      Terms</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#procedure_table">Procedure 
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#contents">Contents</A> 
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 425px; MARGIN: 0px auto; DISPLAY: block"></DIV><BR><BR><A 
+name=static_test_reps.c_reps.c_1></A><BR>
+<HR width="60%">
+<BR>
+<CENTER>
+<TABLE width="50%" border=1>
+  <TBODY>
+  <TR>
+    <TH bgColor=#ff0000><FONT size=5><A class=set1 
+      href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Examples\\Reps.c' , '1');">static_test<BR>(1 
+      to 13 Reps.c) - FAIL </FONT></A></TH></TR></TBODY></TABLE></CENTER><BR>
+<H4><SPAN style="WIDTH: 5%; FLOAT: left; DISPLAY: block">&nbsp;</SPAN> Standards 
+Violation Summary </H4>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center>C </TD>
+    <TD>No prototype for non-static function. : static_test </TD>
+    <TD>MISRA-C:2012 R.8.4 </TD></TR>
+  <TR>
+    <TD align=center>C </TD>
+    <TD>DD data flow anomalies found. </TD>
+    <TD>MISRA-C:2012 R.2.2 </TD></TR></TBODY></TABLE></CENTER><BR>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TH>Code </TH>
+    <TH>Line </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR>
+    <TD align=center><A name=first_63_s>C</A> </TD>
+    <TD align=center>1 </TD>
+    <TD>Empty parameter list to procedure/function. : static_test </TD>
+    <TD>MISRA-C:2012 R.8.2 </TD></TR>
+  <TR>
+    <TH colSpan=4>
+      <TABLE width="100%">
+        <TBODY>
+        <TR>
+          <TD><PRE> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\Examples\\C_tbrun_examples\\Examples\\Reps.c' , '1');">Source</A>: int static_test ()  <BR> <A href="javascript:TBLaunchit('C:\\LDRA_Workarea\\ll_tbwrkfls\\REPS_3.ref' , '8');">Ref(8)</A>: static_test()    </PRE></TD></TR></TBODY></TABLE></TH></TR></TBODY></TABLE></CENTER><BR><BR>
+<CENTER>
+<TABLE bgColor=#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#top_of_rep">Top of 
+      Report</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#key_to_terms">Key to 
+      Terms</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#procedure_table">Procedure 
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#contents">Contents</A> 
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 425px; MARGIN: 0px auto; DISPLAY: block"></DIV><BR><BR><A 
+name=key_to_terms></A><BR>
+<CENTER>
+<H2>Key to Terms </H2></CENTER><BR>
+<H4>Standards violations for procedures are printed in tables with code markers 
+as follows: </H4><BR>
+<CENTER>
+<TABLE bgColor=#d7eded border=1>
+  <TBODY>
+  <TR align=center>
+    <TH>Code </TH>
+    <TH>(Line) </TH>
+    <TH>Violation </TH>
+    <TH>Standard </TH></TR>
+  <TR align=center>
+    <TD>M </TD>
+    <TD>(Source line number) </TD>
+    <TD>[Text of Mandatory standard] </TD>
+    <TD>[Appropriate rule reference] </TD></TR>
+  <TR align=center>
+    <TD>C </TD>
+    <TD>&nbsp;</TD>
+    <TD>[Text of Required standard] </TD>
+    <TD>&nbsp;</TD></TR>
+  <TR align=center>
+    <TD>O </TD>
+    <TD>&nbsp;</TD>
+    <TD>[Text of Advisory standard] </TD>
+    <TD>&nbsp;</TD></TR>
+  <TR align=center>
+    <TH colSpan=4><CODE>[Source: Text of line from Source file] 
+  </CODE></TH></TR></TBODY></TABLE></CENTER><BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Required 
+standards are considered mandatory but individual instances may be overridden by 
+adding annotations to the source code <BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Advisory 
+standards provide additional quality criteria but may be violated <BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For 
+some standards violations, additional information is provided in results tables 
+<BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note 
+that source lines do not show macro expansions <BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Off" 
+in Summary tables indicates that a standard is switched off in the <LANG>pen.dat 
+file <BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"MR" 
+in Summary tables indicates a MISRA Restricted standard which cannot be checked 
+without the MISRA licence option. <BR><BR><BR>
+<H4>A summary is given of the pass/fail result of each program component as 
+follows: </H4><BR>
+<CENTER>
+<TABLE bgColor=#d7eded>
+  <TBODY>
+  <TR>
+    <TD>Components which pass all standards are marked: </TD>
+    <TD bgColor=green ,><FONT color=white>Pass </FONT></TD></TR>
+  <TR>
+    <TD>Components which fail only Advisory standards are marked: </TD>
+    <TD bgColor=yellow ,><FONT color=blue>Conditional Pass </FONT></TD></TR>
+  <TR>
+    <TD>Components which fail on insufficient comments only are marked: </TD>
+    <TD bgColor=orange ,><FONT color=blue>Comment FAIL </FONT></TD></TR>
+  <TR>
+    <TD>Components which violate Mandatory standards are marked: </TD>
+    <TD bgColor=#ff8181 ,><FONT color=blue>FAIL 
+</FONT></TD></TR></TBODY></TABLE></CENTER><BR><A name=unq_key></A><BR><BR>
+<H4>Procedure Results table breakdown (Example Only) </H4><BR>
+<CENTER>
+<TABLE width="60%" bgColor=#ece2e2 border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE width="100%" bgColor=#ece2e2>
+        <TBODY>
+        <TR>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH>
+          <TH width=5></TH></TR>
+        <TR align=left>
+          <TH colSpan=11><TT>Unique Violations </TT></TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH width="49%" colSpan=11><TT>Failure Density </TT></TH>
+          <TH width="1%">&nbsp;</TH></TR>
+        <TR align=left>
+          <TH width="49%" colSpan=11><TT>&nbsp; </TT></TH>
+          <TH width="1%">&nbsp;</TH>
+          <TH colSpan=11><TT>(Viols/R.Line %) </TT></TH>
+          <TH width="1%">&nbsp;</TH></TR>
+        <TR align=left>
+          <TD bgColor=#e17b87 colSpan=7>65 </TD>
+          <TD bgColor=#afe1ab colSpan=4><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=11><FONT color=white>150 </FONT></TD>
+          <TD></TD></TR>
+        <TR align=left>
+          <TD bgColor=#e17b87 colSpan=4>35 </TD>
+          <TD bgColor=#afe1ab colSpan=7><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD>
+          <TD bgColor=#e17b87 colSpan=4>39 </TD>
+          <TD bgColor=#afe1ab colSpan=7><FONT color=#afe1ab>- </FONT></TD>
+          <TD></TD></TR></TD></TR></TBODY></TABLE></TR></TBODY></TABLE></CENTER><BR><BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The 
+Violation density for a function is the number of violations per reformatted 
+line, expressed as a percentage. <BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It 
+is an indication of code quality. <BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Functions 
+with a high violation density are likely to be smaller functions with a large 
+number of violations. <BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lower 
+density may indicate larger functions with fewer violations. <BR><BR><FONT 
+color=#6571c9>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(nViols 
+/ nRefLines) x 100 <BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where: 
+<BR><BR><FONT 
+color=#6571c9>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nViols 
+= number of standard violations in a function. <BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and: 
+<BR><BR><FONT 
+color=#6571c9>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nRefLines 
+= number of reformatted lines in a function. <BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The 
+unique standards failure ratio is an indication of variety of standards 
+violations in a module. <BR><BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thus 
+a function containing one instance of several different standards will have a 
+high ratio, <BR><FONT 
+color=black>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while 
+a function that has violated only one standards will have a low ratio. <BR><BR>
+<HR>
+
+<CENTER>
+<TABLE bgColor=#fffff2>
+  <TBODY>
+  <TR>
+    <TH>[ </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#top_of_rep">Top of 
+      Report</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#procedure_table">Procedure 
+      Table</A> </TD>
+    <TH>| </TH>
+    <TD><A 
+      href="file:///C:/LDRA_Workarea/ll_tbwrkfls/ll.rps.htm#contents">Contents</A> 
+    </TD>
+    <TH>] </TH></TR></TBODY></TABLE></CENTER><BR>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 425px; MARGIN: 0px auto; DISPLAY: block"></DIV><BR>
+<CENTER>
+<H3>End of Code Review Report </H3></CENTER>
+<CENTER>
+<H3></H3></CENTER>
+<CENTER>
+<H3>Copyright © 2013 Liverpool Data Research Associates </H3></CENTER>
+<DIV class=break-p 
+style="HEIGHT: 10px; WIDTH: 80%; MARGIN: 0px auto; DISPLAY: block"></DIV>
+<SCRIPT language=Javascript>
+<!--
+if(navigator.appName == "Netscape"){ document.write("\<!--") }
+// -->
+</SCRIPT>
+
+<OBJECT id=LDRATBLaunch classid=CLSID:58FEBB79-70F5-48A6-9697-E91591DA3F8E><PARAM NAME="ImageLoc" VALUE="Null"><PARAM NAME="Run" VALUE="NULL"><PARAM NAME="RunParms" VALUE="NULL"></OBJECT>
+<SCRIPT language=Javascript>
+<!--
+if(navigator.appName == "Netscape"){ document.write("--\>") }
+else { document.write("\<!--") }
+// -->
+</SCRIPT>
+<EMBED id=LDRATBLaunch type=application/x-eskerplus src="" AndRestore="True" 
+onEvent2(arg1,arg2,arg3)="handler2(arg1,arg2,arg3)" onEvent1()="handler1()" 
+RunParms="NULL" Run="NULL" ImageLoc="NULL" 
+classid="clsid:58FEBB79-70F5-48A6-9697-E91591DA3F8E">
+<SCRIPT language=Javascript>
+<!--
+if(navigator.appName != "Netscape"){ document.write("--\>") }
+// -->
+</SCRIPT>
+ 
+</FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></FONT></BODY></HTML>
